@@ -27,6 +27,6 @@ class CurveClipper extends CustomClipper<Path>{
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
     // TODO: implement shouldReclip
     return false;
-    throw UnimplementedError();
+    // throw UnimplementedError();
   }
 }

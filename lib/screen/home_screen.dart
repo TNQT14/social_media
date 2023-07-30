@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'widgets/custom_drawer.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -42,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         bottom: TabBar(
           controller: _tabController,
           labelColor: Theme.of(context).primaryColor,
-          tabs: <Widget>[
+          tabs: const <Widget>[
             Tab(
               text: 'Trending',
               icon: Icon(Icons.trending_up),
@@ -55,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         ),
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
+      drawer: const CustomDrawer(),
       body: Container(),
     );
   }
