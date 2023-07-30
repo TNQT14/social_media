@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:social_media/data/data.dart';
 import 'package:social_media/screen/widgets/following_users.dart';
+import 'package:social_media/screen/widgets/posts_carousel.dart';
 
 import 'widgets/custom_drawer.dart';
 
@@ -63,8 +65,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         controller: _tabController,
         children: [
           ListView(
-            children: const <Widget>[ 
+            children: <Widget>[ 
               FollowingUsers(),
+              PostsCarousel(
+                pageController: _pageController,
+                title: 'Posts',
+                posts: posts,
+              ),
             ],
           ),
           ListView(
