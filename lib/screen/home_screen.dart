@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:social_media/screen/widgets/following_users.dart';
 
 import 'widgets/custom_drawer.dart';
 
@@ -58,7 +59,21 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       drawer: const CustomDrawer(),
-      body: Container(),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          ListView(
+            children: const <Widget>[ 
+              FollowingUsers(),
+            ],
+          ),
+          ListView(
+            children: const <Widget>[ 
+              FollowingUsers(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

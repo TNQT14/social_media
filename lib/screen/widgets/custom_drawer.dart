@@ -83,7 +83,7 @@ class CustomDrawer extends StatelessWidget {
         _buidDrawerOption(const Icon(Icons.account_circle),"Your Profile", () {}),
         _buidDrawerOption(const Icon(Icons.settings),"Settings", () {}),
         Expanded(
-          child: Padding(padding: EdgeInsets.only(bottom: 20.0),
+          child: Padding(padding: const EdgeInsets.only(bottom: 20.0),
           child: Align(
             alignment:  FractionalOffset.bottomCenter,
             child: _buidDrawerOption(
