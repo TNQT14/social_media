@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/screen/login_screen.dart';
 import '../../data/data.dart';
 import '../home_screen.dart';
 
@@ -23,14 +24,55 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: <Widget>[
-          Image(
-                height: 200.0,
-                width: double.infinity,
-                image: AssetImage(
-                  currentUser.backgroundImageUrl,
+          Stack(
+            children: <Widget>
+            [
+              Image(
+                  height: 200.0,
+                  width: double.infinity,
+                  image: AssetImage(
+                    currentUser.backgroundImageUrl,
+                  ),
+                  fit: BoxFit.cover,
                 ),
-                fit: BoxFit.cover,
+              Positioned(
+                bottom: 20,
+                left: 20,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          width: 3.0,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                      child: ClipOval(
+                        child: Image(
+                          image: AssetImage(currentUser.profileImageUrl),
+                          fit: BoxFit.cover,
+                          ),
+                        ),
+                    ),
+                    const SizedBox(width: 6,),
+                     Text(
+                      currentUser.name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+                  ],
               ),
+        ),
+            ],
+          ),
         _buidDrawerOption(
           const Icon(Icons.home),
           "Home",
@@ -46,24 +88,11 @@ class CustomDrawer extends StatelessWidget {
             alignment:  FractionalOffset.bottomCenter,
             child: _buidDrawerOption(
                const Icon(Icons.login),
-               "Logout", () { }),
+               "Logout", () => Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (_)=>const LoginScreen()))),
                 ),
               ),
             ),
-        Positioned(
-          child: Row(
-            children: <Widget>[
-              Container(
-                child: ClipOval(
-                  child: Image(
-                    image: AssetImage(currentUser.profileImageUrl),
-                    fit: BoxFit.cover,
-                    ),
-                  ),
-              ),
-            ],
-          ),
-        ),
           ],
         ),
     );

@@ -62,6 +62,7 @@ flutter:
   assets:
     - assets/images/login_background.jpg
     - assets/images/user_background.jpg
+    - assets\images\user.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
