@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/data/data.dart';
+import '../../models/user_model.dart';
 
 class FollowingUsers extends StatelessWidget {
   const FollowingUsers({super.key});
@@ -25,7 +27,37 @@ class FollowingUsers extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10.0),
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index){
-              
+              User user = users[index % users.length];
+              return GestureDetector(
+                onTap: (){},
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(0, 2),
+                        blurRadius: 6.0,
+                      ),
+                    ],
+                    border: Border.all(
+                      width: 2.0,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                  child: ClipOval(
+                    child: Image(
+                      height: 60.0,
+                      width: 60.0,
+                      image: AssetImage(user.profileImageUrl),
+                      fit: BoxFit.cover,
+                      ),
+                    ),
+                ),
+              );
             },
           ),
           ),
