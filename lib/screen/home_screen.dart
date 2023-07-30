@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:social_media/data/data.dart';
 import 'package:social_media/screen/widgets/following_users.dart';
 import 'package:social_media/screen/widgets/posts_carousel.dart';
-
 import 'widgets/custom_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,7 +45,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         ),
         bottom: TabBar(
           controller: _tabController,
+          indicatorWeight: 3.0,
           labelColor: Theme.of(context).primaryColor,
+          labelStyle: const TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w600,
+          ),
+          unselectedLabelStyle: const TextStyle(
+            fontSize: 18.0,
+          ),
           tabs: const <Widget>[
             Tab(
               text: 'Trending',
@@ -66,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         children: [
           ListView(
             children: <Widget>[ 
-              FollowingUsers(),
+              const FollowingUsers(),
               PostsCarousel(
                 pageController: _pageController,
                 title: 'Posts',
@@ -76,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ),
           ListView(
             children: <Widget>[ 
-              FollowingUsers(),
+              const FollowingUsers(),
               PostsCarousel(
                 pageController: _favoritesPageController,
                 title: 'Favorites',

@@ -10,7 +10,7 @@ class FollowingUsers extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-         Padding(
+         const Padding(
           padding: EdgeInsets.fromLTRB(20,20,20,10),
           child: Text(
             "Following",
@@ -23,7 +23,7 @@ class FollowingUsers extends StatelessWidget {
           ),
           SizedBox(height: 80,
           child: ListView.builder(
-            itemCount: 50,
+            itemCount: users.length,
             padding: const EdgeInsets.only(left: 10.0),
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index){
