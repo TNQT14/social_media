@@ -75,8 +75,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             ],
           ),
           ListView(
-            children: const <Widget>[ 
+            children: <Widget>[ 
               FollowingUsers(),
+              PostsCarousel(
+                pageController: _favoritesPageController,
+                title: 'Favorites',
+                posts: currentUser.favorites,
+              ),
             ],
           ),
         ],
