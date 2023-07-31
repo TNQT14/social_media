@@ -94,6 +94,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ), 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    const Text("Following",
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 21,
+                      ),
+                    ),
+                    const SizedBox(height: 2.0),
+                    Text(widget.user.following.toString(),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                    ),)
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    const Text("Follower",
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 21,
+                      ),
+                    ),
+                    const SizedBox(height: 2.0),
+                    Text(widget.user.followers.toString(),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                    ),)
+                  ],
+                ),
+              ],
+            ),
             PostsCarousel(
               pageController: _yourPostsPageController,
               title: 'Your Posts',
