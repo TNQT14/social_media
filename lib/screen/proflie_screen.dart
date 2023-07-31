@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/data/data.dart';
 import 'package:social_media/screen/widgets/custom_drawer.dart';
+import 'package:social_media/screen/widgets/profile_clipper.dart';
 
 import '../models/user_model.dart';
 
@@ -30,6 +32,70 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: const CustomDrawer(),
+      body: SingleChildScrollView(
+        child: Column(      
+          children: <Widget>[
+            Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                ClipPath(
+                  clipper: ProfileClipper(),
+                  child: Image(
+                    width: double.infinity,
+                    height: 300,
+                    image: AssetImage(widget.user.backgroundImageUrl),
+                    fit: BoxFit.cover,
+                    ),
+                ),
+                Positioned(
+                  top: 50,
+                  left: 10,
+                  child: IconButton(
+                    icon: const Icon(Icons.menu),
+                    iconSize: 30,
+                    color: Theme.of(context).primaryColor,
+                    onPressed: () => _scaffoldKey.currentState!.openDrawer(),
+                  ),
+                  ),
+                Positioned(
+                  bottom: 10,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          offset: Offset(0,2),
+                          blurRadius: 10,
+                        )
+                      ]
+                    ),
+                    child: ClipOval(
+                      child: Image(
+                        height: 100,
+                        width: 100,
+                        image: AssetImage(widget.user.profileImageUrl),
+                        fit: BoxFit.cover,
+                        ),
+                    ),
+                  ),
+                ),      
+              ],
+            ),
+            Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Text(
+                    widget.user.name,
+                    style: const TextStyle(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                      ),
+                    ),
+                  ),   
+          ],
+          ),
+      )
     );
   }
 }
