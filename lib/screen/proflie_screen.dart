@@ -4,6 +4,7 @@ import 'package:social_media/screen/widgets/custom_drawer.dart';
 import 'package:social_media/screen/widgets/profile_clipper.dart';
 
 import '../models/user_model.dart';
+import 'widgets/posts_carousel.dart';
 
 class ProfileScreen extends StatefulWidget {
   final User user;
@@ -92,7 +93,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       letterSpacing: 1.5,
                       ),
                     ),
-                  ),   
+                  ), 
+            PostsCarousel(
+              pageController: _yourPostsPageController,
+              title: 'Your Posts',
+              posts: widget.user.posts,
+            ),  
+            PostsCarousel(
+              pageController: _favoritesPageController,
+              title: 'Your Favorites',
+              posts: widget.user.posts,
+            ), 
           ],
           ),
       )
