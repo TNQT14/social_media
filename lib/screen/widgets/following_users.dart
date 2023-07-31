@@ -23,7 +23,7 @@ class FollowingUsers extends StatelessWidget {
           ),
           SizedBox(height: 80,
           child: ListView.builder(
-            itemCount: users.length,
+            itemCount: 50,
             padding: const EdgeInsets.only(left: 10.0),
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index){
