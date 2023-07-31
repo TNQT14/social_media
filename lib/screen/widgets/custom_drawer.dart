@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/screen/login_screen.dart';
+import 'package:social_media/screen/proflie_screen.dart';
 import '../../data/data.dart';
 import '../home_screen.dart';
 
@@ -80,7 +81,10 @@ class CustomDrawer extends StatelessWidget {
            MaterialPageRoute(builder: (_) => const HomeScreen()))),
         _buidDrawerOption(const Icon(Icons.chat),"Chat", () {}),
         _buidDrawerOption(const Icon(Icons.location_on),"Map", () {}),
-        _buidDrawerOption(const Icon(Icons.account_circle),"Your Profile", () {}),
+        _buidDrawerOption(const Icon(Icons.account_circle),"Your Profile", () => Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_)=> ProfileScreen(
+                          user: currentUser,
+                        )))),
         _buidDrawerOption(const Icon(Icons.settings),"Settings", () {}),
         Expanded(
           child: Padding(padding: const EdgeInsets.only(bottom: 20.0),
